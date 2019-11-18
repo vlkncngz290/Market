@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace Market
 {
-    public partial class UserControl1 : UserControl
+    public partial class UrunYonetimi : UserControl
     {
-        public UserControl1()
+        public UrunYonetimi()
         {
             InitializeComponent();
+        }
+
+        private void metroTile4_Click(object sender, EventArgs e)
+        {
+            UrunEkle ue = new UrunEkle();
+            ue.Show();
         }
     }
 }

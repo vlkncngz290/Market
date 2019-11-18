@@ -29,189 +29,151 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.xuıObjectEllipse1 = new XanderUI.XUIObjectEllipse();
-            this.xuıSlidingPanel1 = new XanderUI.XUISlidingPanel();
-            this.xuıButton1 = new XanderUI.XUIButton();
-            this.xuıButton2 = new XanderUI.XUIButton();
-            this.xuıButton3 = new XanderUI.XUIButton();
-            this.xuıButton4 = new XanderUI.XUIButton();
-            this.xuıButton5 = new XanderUI.XUIButton();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
-            this.xuıSlidingPanel1.SuspendLayout();
+            this.metroTile1 = new MetroFramework.Controls.MetroTile();
+            this.metroTile2 = new MetroFramework.Controls.MetroTile();
+            this.metroTile3 = new MetroFramework.Controls.MetroTile();
+            this.metroTile4 = new MetroFramework.Controls.MetroTile();
+            this.urunYonetimi1 = new Market.UrunYonetimi();
+            this.metroPanel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // xuıObjectEllipse1
-            // 
-            this.xuıObjectEllipse1.CornerRadius = 10;
-            this.xuıObjectEllipse1.EffectedControl = this;
-            this.xuıObjectEllipse1.EffectedForm = this;
-            // 
-            // xuıSlidingPanel1
-            // 
-            this.xuıSlidingPanel1.BottomLeft = System.Drawing.Color.DodgerBlue;
-            this.xuıSlidingPanel1.BottomRight = System.Drawing.Color.DodgerBlue;
-            this.xuıSlidingPanel1.CollapseControl = null;
-            this.xuıSlidingPanel1.Collapsed = true;
-            this.xuıSlidingPanel1.Controls.Add(this.xuıButton5);
-            this.xuıSlidingPanel1.Controls.Add(this.xuıButton4);
-            this.xuıSlidingPanel1.Controls.Add(this.xuıButton3);
-            this.xuıSlidingPanel1.Controls.Add(this.xuıButton2);
-            this.xuıSlidingPanel1.Controls.Add(this.xuıButton1);
-            this.xuıSlidingPanel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.xuıSlidingPanel1.HideControls = false;
-            this.xuıSlidingPanel1.Location = new System.Drawing.Point(0, 0);
-            this.xuıSlidingPanel1.Name = "xuıSlidingPanel1";
-            this.xuıSlidingPanel1.PanelWidthCollapsed = 50;
-            this.xuıSlidingPanel1.PanelWidthExpanded = 200;
-            this.xuıSlidingPanel1.PrimerColor = System.Drawing.Color.White;
-            this.xuıSlidingPanel1.Size = new System.Drawing.Size(234, 743);
-            this.xuıSlidingPanel1.Style = XanderUI.XUIGradientPanel.GradientStyle.Corners;
-            this.xuıSlidingPanel1.TabIndex = 21;
-            this.xuıSlidingPanel1.TopLeft = System.Drawing.Color.Black;
-            this.xuıSlidingPanel1.TopRight = System.Drawing.Color.Black;
-            // 
-            // xuıButton1
-            // 
-            this.xuıButton1.BackgroundColor = System.Drawing.Color.Transparent;
-            this.xuıButton1.ButtonImage = ((System.Drawing.Image)(resources.GetObject("xuıButton1.ButtonImage")));
-            this.xuıButton1.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.xuıButton1.ButtonText = "Satış";
-            this.xuıButton1.ClickBackColor = System.Drawing.Color.Silver;
-            this.xuıButton1.ClickTextColor = System.Drawing.Color.DimGray;
-            this.xuıButton1.CornerRadius = 100;
-            this.xuıButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.xuıButton1.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.xuıButton1.HoverBackgroundColor = System.Drawing.Color.Gainsboro;
-            this.xuıButton1.HoverTextColor = System.Drawing.Color.Black;
-            this.xuıButton1.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.xuıButton1.Location = new System.Drawing.Point(3, 54);
-            this.xuıButton1.Name = "xuıButton1";
-            this.xuıButton1.Size = new System.Drawing.Size(226, 50);
-            this.xuıButton1.TabIndex = 0;
-            this.xuıButton1.TextColor = System.Drawing.Color.DimGray;
-            this.xuıButton1.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            // 
-            // xuıButton2
-            // 
-            this.xuıButton2.BackgroundColor = System.Drawing.Color.Transparent;
-            this.xuıButton2.ButtonImage = ((System.Drawing.Image)(resources.GetObject("xuıButton2.ButtonImage")));
-            this.xuıButton2.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.xuıButton2.ButtonText = "Satınalma";
-            this.xuıButton2.ClickBackColor = System.Drawing.Color.Silver;
-            this.xuıButton2.ClickTextColor = System.Drawing.Color.DimGray;
-            this.xuıButton2.CornerRadius = 100;
-            this.xuıButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.xuıButton2.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.xuıButton2.HoverBackgroundColor = System.Drawing.Color.Gainsboro;
-            this.xuıButton2.HoverTextColor = System.Drawing.Color.Black;
-            this.xuıButton2.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.xuıButton2.Location = new System.Drawing.Point(3, 110);
-            this.xuıButton2.Name = "xuıButton2";
-            this.xuıButton2.Size = new System.Drawing.Size(226, 50);
-            this.xuıButton2.TabIndex = 1;
-            this.xuıButton2.TextColor = System.Drawing.Color.DimGray;
-            this.xuıButton2.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            // 
-            // xuıButton3
-            // 
-            this.xuıButton3.BackgroundColor = System.Drawing.Color.Transparent;
-            this.xuıButton3.ButtonImage = ((System.Drawing.Image)(resources.GetObject("xuıButton3.ButtonImage")));
-            this.xuıButton3.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.xuıButton3.ButtonText = "Ürün Analizi";
-            this.xuıButton3.ClickBackColor = System.Drawing.Color.Silver;
-            this.xuıButton3.ClickTextColor = System.Drawing.Color.DimGray;
-            this.xuıButton3.CornerRadius = 100;
-            this.xuıButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.xuıButton3.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.xuıButton3.HoverBackgroundColor = System.Drawing.Color.Gainsboro;
-            this.xuıButton3.HoverTextColor = System.Drawing.Color.Black;
-            this.xuıButton3.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.xuıButton3.Location = new System.Drawing.Point(3, 166);
-            this.xuıButton3.Name = "xuıButton3";
-            this.xuıButton3.Size = new System.Drawing.Size(226, 50);
-            this.xuıButton3.TabIndex = 2;
-            this.xuıButton3.TextColor = System.Drawing.Color.DimGray;
-            this.xuıButton3.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            // 
-            // xuıButton4
-            // 
-            this.xuıButton4.BackgroundColor = System.Drawing.Color.Transparent;
-            this.xuıButton4.ButtonImage = ((System.Drawing.Image)(resources.GetObject("xuıButton4.ButtonImage")));
-            this.xuıButton4.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.xuıButton4.ButtonText = "Barkod Oluştur";
-            this.xuıButton4.ClickBackColor = System.Drawing.Color.Silver;
-            this.xuıButton4.ClickTextColor = System.Drawing.Color.DimGray;
-            this.xuıButton4.CornerRadius = 100;
-            this.xuıButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.xuıButton4.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.xuıButton4.HoverBackgroundColor = System.Drawing.Color.Gainsboro;
-            this.xuıButton4.HoverTextColor = System.Drawing.Color.Black;
-            this.xuıButton4.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.xuıButton4.Location = new System.Drawing.Point(3, 222);
-            this.xuıButton4.Name = "xuıButton4";
-            this.xuıButton4.Size = new System.Drawing.Size(226, 50);
-            this.xuıButton4.TabIndex = 3;
-            this.xuıButton4.TextColor = System.Drawing.Color.DimGray;
-            this.xuıButton4.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            // 
-            // xuıButton5
-            // 
-            this.xuıButton5.BackgroundColor = System.Drawing.Color.Transparent;
-            this.xuıButton5.ButtonImage = ((System.Drawing.Image)(resources.GetObject("xuıButton5.ButtonImage")));
-            this.xuıButton5.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.xuıButton5.ButtonText = "Çıkış";
-            this.xuıButton5.ClickBackColor = System.Drawing.Color.Silver;
-            this.xuıButton5.ClickTextColor = System.Drawing.Color.DimGray;
-            this.xuıButton5.CornerRadius = 100;
-            this.xuıButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.xuıButton5.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.xuıButton5.HoverBackgroundColor = System.Drawing.Color.Gainsboro;
-            this.xuıButton5.HoverTextColor = System.Drawing.Color.Black;
-            this.xuıButton5.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.xuıButton5.Location = new System.Drawing.Point(3, 681);
-            this.xuıButton5.Name = "xuıButton5";
-            this.xuıButton5.Size = new System.Drawing.Size(226, 50);
-            this.xuıButton5.TabIndex = 4;
-            this.xuıButton5.TextColor = System.Drawing.Color.DimGray;
-            this.xuıButton5.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
             // metroPanel1
             // 
+            this.metroPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.metroPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.metroPanel1.Controls.Add(this.metroTile4);
+            this.metroPanel1.Controls.Add(this.metroTile3);
+            this.metroPanel1.Controls.Add(this.metroTile2);
+            this.metroPanel1.Controls.Add(this.metroTile1);
             this.metroPanel1.HorizontalScrollbarBarColor = true;
             this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(235, 0);
+            this.metroPanel1.Location = new System.Drawing.Point(0, 5);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(961, 743);
-            this.metroPanel1.TabIndex = 22;
+            this.metroPanel1.Size = new System.Drawing.Size(200, 696);
+            this.metroPanel1.Style = MetroFramework.MetroColorStyle.Silver;
+            this.metroPanel1.TabIndex = 0;
+            this.metroPanel1.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroPanel1.UseCustomBackColor = true;
+            this.metroPanel1.UseStyleColors = true;
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // metroTile1
+            // 
+            this.metroTile1.ActiveControl = null;
+            this.metroTile1.CausesValidation = false;
+            this.metroTile1.Location = new System.Drawing.Point(0, 44);
+            this.metroTile1.Name = "metroTile1";
+            this.metroTile1.PaintTileCount = false;
+            this.metroTile1.Size = new System.Drawing.Size(200, 47);
+            this.metroTile1.Style = MetroFramework.MetroColorStyle.Yellow;
+            this.metroTile1.TabIndex = 2;
+            this.metroTile1.Text = "Alışveriş Ekranı";
+            this.metroTile1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTile1.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroTile1.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile1.TileImage")));
+            this.metroTile1.TileImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.metroTile1.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.metroTile1.UseSelectable = true;
+            this.metroTile1.UseTileImage = true;
+            // 
+            // metroTile2
+            // 
+            this.metroTile2.ActiveControl = null;
+            this.metroTile2.Location = new System.Drawing.Point(0, 97);
+            this.metroTile2.Name = "metroTile2";
+            this.metroTile2.PaintTileCount = false;
+            this.metroTile2.Size = new System.Drawing.Size(200, 47);
+            this.metroTile2.Style = MetroFramework.MetroColorStyle.Yellow;
+            this.metroTile2.TabIndex = 3;
+            this.metroTile2.Text = "Ürün Yönetimi";
+            this.metroTile2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTile2.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroTile2.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile2.TileImage")));
+            this.metroTile2.TileImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.metroTile2.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.metroTile2.UseSelectable = true;
+            this.metroTile2.UseTileImage = true;
+            this.metroTile2.Click += new System.EventHandler(this.metroTile2_Click);
+            // 
+            // metroTile3
+            // 
+            this.metroTile3.ActiveControl = null;
+            this.metroTile3.Location = new System.Drawing.Point(0, 150);
+            this.metroTile3.Name = "metroTile3";
+            this.metroTile3.PaintTileCount = false;
+            this.metroTile3.Size = new System.Drawing.Size(200, 47);
+            this.metroTile3.Style = MetroFramework.MetroColorStyle.Yellow;
+            this.metroTile3.TabIndex = 4;
+            this.metroTile3.Text = "Satınalma";
+            this.metroTile3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTile3.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroTile3.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile3.TileImage")));
+            this.metroTile3.TileImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.metroTile3.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.metroTile3.UseSelectable = true;
+            this.metroTile3.UseTileImage = true;
+            // 
+            // metroTile4
+            // 
+            this.metroTile4.ActiveControl = null;
+            this.metroTile4.Location = new System.Drawing.Point(0, 203);
+            this.metroTile4.Name = "metroTile4";
+            this.metroTile4.PaintTileCount = false;
+            this.metroTile4.Size = new System.Drawing.Size(200, 47);
+            this.metroTile4.Style = MetroFramework.MetroColorStyle.Yellow;
+            this.metroTile4.TabIndex = 5;
+            this.metroTile4.Text = "Raporlar";
+            this.metroTile4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTile4.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroTile4.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile4.TileImage")));
+            this.metroTile4.TileImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.metroTile4.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.metroTile4.UseSelectable = true;
+            this.metroTile4.UseTileImage = true;
+            // 
+            // urunYonetimi1
+            // 
+            this.urunYonetimi1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.urunYonetimi1.BackColor = System.Drawing.Color.White;
+            this.urunYonetimi1.Location = new System.Drawing.Point(206, 33);
+            this.urunYonetimi1.Name = "urunYonetimi1";
+            this.urunYonetimi1.Size = new System.Drawing.Size(971, 644);
+            this.urunYonetimi1.TabIndex = 2;
+            this.urunYonetimi1.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1201, 743);
+            this.ClientSize = new System.Drawing.Size(1200, 700);
+            this.Controls.Add(this.urunYonetimi1);
             this.Controls.Add(this.metroPanel1);
-            this.Controls.Add(this.xuıSlidingPanel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.DisplayHeader = false;
             this.Name = "Form1";
+            this.Padding = new System.Windows.Forms.Padding(20, 30, 20, 20);
+            this.ShadowType = MetroFramework.Forms.MetroFormShadowType.None;
+            this.Style = MetroFramework.MetroColorStyle.Silver;
             this.Text = "Form1";
-            this.xuıSlidingPanel1.ResumeLayout(false);
+            this.metroPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private XanderUI.XUIObjectEllipse xuıObjectEllipse1;
-        private XanderUI.XUISlidingPanel xuıSlidingPanel1;
-        private XanderUI.XUIButton xuıButton5;
-        private XanderUI.XUIButton xuıButton4;
-        private XanderUI.XUIButton xuıButton3;
-        private XanderUI.XUIButton xuıButton2;
-        private XanderUI.XUIButton xuıButton1;
+
         private MetroFramework.Controls.MetroPanel metroPanel1;
+        private MetroFramework.Controls.MetroTile metroTile2;
+        private MetroFramework.Controls.MetroTile metroTile1;
+        private MetroFramework.Controls.MetroTile metroTile4;
+        private MetroFramework.Controls.MetroTile metroTile3;
+        private UrunYonetimi urunYonetimi1;
     }
 }
 
