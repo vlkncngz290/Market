@@ -13,6 +13,9 @@ namespace Market
 {
     public partial class UrunEkle : MetroFramework.Forms.MetroForm
     {
+
+        String resimVeri = "";
+        public static bool veri_yenile = false;
         public UrunEkle()
         {
             InitializeComponent();
@@ -41,6 +44,7 @@ namespace Market
                     pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
                     byte[] resimByte = m.ToArray();
                     string base64resim = Convert.ToBase64String(resimByte);
+                    resimVeri = base64resim;
                 }
                 catch
                 {
@@ -48,6 +52,88 @@ namespace Market
                 }
                 
             }
+        }
+
+        private void UrunEkle_Load(object sender, EventArgs e)
+        {
+            timer1.Interval = 1000;
+            timer1.Start();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (veri_yenile)
+            {
+                veri_yenile = false;
+                basla();
+            }
+        }
+
+        public void basla()
+        {
+
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            UreticiFirmaEkle ufe = new UreticiFirmaEkle();
+            ufe.Show();
+        }
+
+      
+
+        private void pictureBox5_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBox5.Image = Properties.Resources.add_480px;
+            pictureBox5.Refresh();
+        }
+
+        private void pictureBox4_MouseEnter(object sender, EventArgs e)
+        {
+            pictureBox4.Image = Properties.Resources.add2_480px;
+            pictureBox4.Refresh();
+        }
+
+        private void pictureBox4_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBox4.Image = Properties.Resources.add_480px;
+            pictureBox4.Refresh();
+        }
+
+        private void pictureBox5_MouseEnter(object sender, EventArgs e)
+        {
+            pictureBox5.Image = Properties.Resources.add2_480px;
+            pictureBox5.Refresh();
+        }
+
+        private void pictureBox3_MouseEnter(object sender, EventArgs e)
+        {
+            pictureBox3.Image = Properties.Resources.add2_480px;
+            pictureBox3.Refresh();
+        }
+
+        private void pictureBox3_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBox3.Image = Properties.Resources.add_480px;
+            pictureBox3.Refresh();
+        }
+
+        private void pictureBox2_MouseEnter(object sender, EventArgs e)
+        {
+            pictureBox2.Image = Properties.Resources.add2_480px;
+            pictureBox2.Refresh();
+        }
+
+        private void pictureBox2_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBox2.Image = Properties.Resources.add_480px;
+            pictureBox2.Refresh();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            UrunGrubuEkle uge = new UrunGrubuEkle();
+            uge.Show();
         }
     }
 }

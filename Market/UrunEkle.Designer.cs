@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UrunEkle));
             this.metroTextBox5 = new MetroFramework.Controls.MetroTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.metroTextBox4 = new MetroFramework.Controls.MetroTextBox();
@@ -38,7 +40,16 @@
             this.metroTextBox2 = new MetroFramework.Controls.MetroTextBox();
             this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // metroTextBox5
@@ -122,7 +133,7 @@
             this.metroComboBox5.Location = new System.Drawing.Point(23, 197);
             this.metroComboBox5.Name = "metroComboBox5";
             this.metroComboBox5.PromptText = "Üretici Firma";
-            this.metroComboBox5.Size = new System.Drawing.Size(395, 29);
+            this.metroComboBox5.Size = new System.Drawing.Size(356, 29);
             this.metroComboBox5.Style = MetroFramework.MetroColorStyle.Silver;
             this.metroComboBox5.TabIndex = 20;
             this.metroComboBox5.UseSelectable = true;
@@ -134,7 +145,7 @@
             this.metroComboBox6.Location = new System.Drawing.Point(23, 162);
             this.metroComboBox6.Name = "metroComboBox6";
             this.metroComboBox6.PromptText = "Ürün Alt Grubu";
-            this.metroComboBox6.Size = new System.Drawing.Size(395, 29);
+            this.metroComboBox6.Size = new System.Drawing.Size(356, 29);
             this.metroComboBox6.Style = MetroFramework.MetroColorStyle.Silver;
             this.metroComboBox6.TabIndex = 19;
             this.metroComboBox6.UseSelectable = true;
@@ -146,7 +157,7 @@
             this.metroComboBox7.Location = new System.Drawing.Point(23, 127);
             this.metroComboBox7.Name = "metroComboBox7";
             this.metroComboBox7.PromptText = "Ürün Grubu";
-            this.metroComboBox7.Size = new System.Drawing.Size(395, 29);
+            this.metroComboBox7.Size = new System.Drawing.Size(356, 29);
             this.metroComboBox7.Style = MetroFramework.MetroColorStyle.Silver;
             this.metroComboBox7.TabIndex = 18;
             this.metroComboBox7.UseSelectable = true;
@@ -158,7 +169,7 @@
             this.metroComboBox8.Location = new System.Drawing.Point(23, 92);
             this.metroComboBox8.Name = "metroComboBox8";
             this.metroComboBox8.PromptText = "Ürün Rafı";
-            this.metroComboBox8.Size = new System.Drawing.Size(395, 29);
+            this.metroComboBox8.Size = new System.Drawing.Size(356, 29);
             this.metroComboBox8.Style = MetroFramework.MetroColorStyle.Silver;
             this.metroComboBox8.TabIndex = 17;
             this.metroComboBox8.UseSelectable = true;
@@ -218,11 +229,69 @@
             this.metroButton1.UseSelectable = true;
             this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(385, 92);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(33, 29);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 26;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.MouseEnter += new System.EventHandler(this.pictureBox2_MouseEnter);
+            this.pictureBox2.MouseLeave += new System.EventHandler(this.pictureBox2_MouseLeave);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(385, 127);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(33, 29);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 27;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            this.pictureBox3.MouseEnter += new System.EventHandler(this.pictureBox3_MouseEnter);
+            this.pictureBox3.MouseLeave += new System.EventHandler(this.pictureBox3_MouseLeave);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(385, 162);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(33, 29);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 28;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.MouseEnter += new System.EventHandler(this.pictureBox4_MouseEnter);
+            this.pictureBox4.MouseLeave += new System.EventHandler(this.pictureBox4_MouseLeave);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::Market.Properties.Resources.add_480px;
+            this.pictureBox5.Location = new System.Drawing.Point(385, 197);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(33, 29);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 29;
+            this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
+            this.pictureBox5.MouseEnter += new System.EventHandler(this.pictureBox5_MouseEnter);
+            this.pictureBox5.MouseLeave += new System.EventHandler(this.pictureBox5_MouseLeave);
+            // 
             // UrunEkle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(668, 337);
+            this.Controls.Add(this.pictureBox5);
+            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.metroTile1);
             this.Controls.Add(this.metroTextBox5);
@@ -236,7 +305,12 @@
             this.Name = "UrunEkle";
             this.Style = MetroFramework.MetroColorStyle.Yellow;
             this.Text = "Yeni Ürün Ekle";
+            this.Load += new System.EventHandler(this.UrunEkle_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -253,5 +327,10 @@
         private MetroFramework.Controls.MetroTextBox metroTextBox2;
         private MetroFramework.Controls.MetroTile metroTile1;
         private MetroFramework.Controls.MetroButton metroButton1;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }

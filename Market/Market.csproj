@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +48,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
     </Reference>
@@ -42,8 +63,21 @@
     <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
     </Reference>
+    <Reference Include="MySql.Data, Version=8.0.18.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.18\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,6 +95,8 @@
     <Compile Include="Alisveris.Designer.cs">
       <DependentUpon>Alisveris.cs</DependentUpon>
     </Compile>
+    <Compile Include="Baglanti.cs" />
+    <Compile Include="EkranAktiflestir.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,11 +117,23 @@
     <Compile Include="Satinalma.Designer.cs">
       <DependentUpon>Satinalma.cs</DependentUpon>
     </Compile>
+    <Compile Include="UreticiFirmaEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UreticiFirmaEkle.Designer.cs">
+      <DependentUpon>UreticiFirmaEkle.cs</DependentUpon>
+    </Compile>
     <Compile Include="UrunEkle.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UrunEkle.Designer.cs">
       <DependentUpon>UrunEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UrunGrubuEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UrunGrubuEkle.Designer.cs">
+      <DependentUpon>UrunGrubuEkle.cs</DependentUpon>
     </Compile>
     <Compile Include="UrunYonetimi.cs">
       <SubType>UserControl</SubType>
@@ -107,6 +155,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Raporlar.resx">
       <DependentUpon>Raporlar.cs</DependentUpon>
@@ -114,8 +163,14 @@
     <EmbeddedResource Include="Satinalma.resx">
       <DependentUpon>Satinalma.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UreticiFirmaEkle.resx">
+      <DependentUpon>UreticiFirmaEkle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UrunEkle.resx">
       <DependentUpon>UrunEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UrunGrubuEkle.resx">
+      <DependentUpon>UrunGrubuEkle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UrunYonetimi.resx">
       <DependentUpon>UrunYonetimi.cs</DependentUpon>
@@ -133,6 +188,25 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="add2_480px.png" />
+    <Content Include="add_480px.png" />
+    <Content Include="Image1.png" />
+    <None Include="Resources\add2_480px.png" />
+    <None Include="Resources\add_480px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 ve x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 </ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
