@@ -13,8 +13,11 @@ namespace Market
 {
     public partial class UrunEkle : MetroFramework.Forms.MetroForm
     {
-
+        DateTime _lastKeystroke = new DateTime(0);
+        List<char> _barcode = new List<char>(10);
         String resimVeri = "";
+        String barkodOkuyucuVerisi = "";
+        Boolean veriAl = false;
         public static bool veri_yenile = false;
         public UrunEkle()
         {
@@ -56,7 +59,7 @@ namespace Market
 
         private void UrunEkle_Load(object sender, EventArgs e)
         {
-            timer1.Interval = 1000;
+            timer1.Interval = 500;
             timer1.Start();
         }
 
@@ -67,6 +70,7 @@ namespace Market
                 veri_yenile = false;
                 basla();
             }
+            barkodOkuyucuVerisi = "";
         }
 
         public void basla()
@@ -134,6 +138,26 @@ namespace Market
         {
             UrunGrubuEkle uge = new UrunGrubuEkle();
             uge.Show();
+        }
+
+
+        private void UrunEkle_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Convert.ToInt32(e.KeyChar) == 13)
+            {
+                metroTextBox5.Text=barkodOkuyucuVerisi;
+            }
+            if (true)
+            {
+                barkodOkuyucuVerisi = barkodOkuyucuVerisi + e.KeyChar.ToString();
+            }
+            
+
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
         }
     }
 }

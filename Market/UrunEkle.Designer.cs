@@ -242,6 +242,7 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 26;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             this.pictureBox2.MouseEnter += new System.EventHandler(this.pictureBox2_MouseEnter);
             this.pictureBox2.MouseLeave += new System.EventHandler(this.pictureBox2_MouseLeave);
             // 
@@ -302,10 +303,12 @@
             this.Controls.Add(this.metroComboBox7);
             this.Controls.Add(this.metroComboBox8);
             this.Controls.Add(this.metroTextBox2);
+            this.KeyPreview = true;
             this.Name = "UrunEkle";
             this.Style = MetroFramework.MetroColorStyle.Yellow;
             this.Text = "Yeni Ürün Ekle";
             this.Load += new System.EventHandler(this.UrunEkle_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.UrunEkle_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

@@ -21,5 +21,11 @@ namespace Market
         {
             urunYonetimi1.Visible = true;
         }
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            MetroFramework.MetroMessageBox.Show(this, e.KeyChar.ToString());
+            MessageBox.Show(e.KeyChar.ToString());
+        }
     }
 }

@@ -26,3 +26,31 @@ C:\Users\Volkan\source\repos\Market\Market\bin\Debug\MySql.Data.xml
 C:\Users\Volkan\source\repos\Market\Market\bin\Debug\Renci.SshNet.xml
 C:\Users\Volkan\source\repos\Market\Market\obj\Debug\Market.UreticiFirmaEkle.resources
 C:\Users\Volkan\source\repos\Market\Market\obj\Debug\Market.UrunGrubuEkle.resources
+C:\Users\Volkan CENGİZ\Desktop\Market\Market\bin\Debug\Market.exe.config
+C:\Users\Volkan CENGİZ\Desktop\Market\Market\bin\Debug\Market.exe
+C:\Users\Volkan CENGİZ\Desktop\Market\Market\bin\Debug\Market.pdb
+C:\Users\Volkan CENGİZ\Desktop\Market\Market\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Volkan CENGİZ\Desktop\Market\Market\bin\Debug\Google.Protobuf.dll
+C:\Users\Volkan CENGİZ\Desktop\Market\Market\bin\Debug\MetroFramework.Design.dll
+C:\Users\Volkan CENGİZ\Desktop\Market\Market\bin\Debug\MetroFramework.dll
+C:\Users\Volkan CENGİZ\Desktop\Market\Market\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\Volkan CENGİZ\Desktop\Market\Market\bin\Debug\MySql.Data.dll
+C:\Users\Volkan CENGİZ\Desktop\Market\Market\bin\Debug\Renci.SshNet.dll
+C:\Users\Volkan CENGİZ\Desktop\Market\Market\bin\Debug\Google.Protobuf.xml
+C:\Users\Volkan CENGİZ\Desktop\Market\Market\bin\Debug\MySql.Data.xml
+C:\Users\Volkan CENGİZ\Desktop\Market\Market\bin\Debug\Renci.SshNet.xml
+C:\Users\Volkan CENGİZ\Desktop\Market\Market\obj\Debug\Market.csprojAssemblyReference.cache
+C:\Users\Volkan CENGİZ\Desktop\Market\Market\obj\Debug\Market.Alisveris.resources
+C:\Users\Volkan CENGİZ\Desktop\Market\Market\obj\Debug\Market.Form1.resources
+C:\Users\Volkan CENGİZ\Desktop\Market\Market\obj\Debug\Market.Properties.Resources.resources
+C:\Users\Volkan CENGİZ\Desktop\Market\Market\obj\Debug\Market.Raporlar.resources
+C:\Users\Volkan CENGİZ\Desktop\Market\Market\obj\Debug\Market.Satinalma.resources
+C:\Users\Volkan CENGİZ\Desktop\Market\Market\obj\Debug\Market.UreticiFirmaEkle.resources
+C:\Users\Volkan CENGİZ\Desktop\Market\Market\obj\Debug\Market.UrunEkle.resources
+C:\Users\Volkan CENGİZ\Desktop\Market\Market\obj\Debug\Market.UrunGrubuEkle.resources
+C:\Users\Volkan CENGİZ\Desktop\Market\Market\obj\Debug\Market.UrunYonetimi.resources
+C:\Users\Volkan CENGİZ\Desktop\Market\Market\obj\Debug\Market.csproj.GenerateResource.cache
+C:\Users\Volkan CENGİZ\Desktop\Market\Market\obj\Debug\Market.csproj.CoreCompileInputs.cache
+C:\Users\Volkan CENGİZ\Desktop\Market\Market\obj\Debug\Market.csproj.CopyComplete
+C:\Users\Volkan CENGİZ\Desktop\Market\Market\obj\Debug\Market.exe
+C:\Users\Volkan CENGİZ\Desktop\Market\Market\obj\Debug\Market.pdb
