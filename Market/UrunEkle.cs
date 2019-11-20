@@ -13,6 +13,12 @@ namespace Market
 {
     public partial class UrunEkle : MetroFramework.Forms.MetroForm
     {
+        Baglanti baglanti = new Baglanti();
+        String sorgu = "";
+        Dictionary<string, string> raflar = new Dictionary<string, string>();
+        Dictionary<string, string> gruplar = new Dictionary<string, string>();
+        Dictionary<string, string> firmalar = new Dictionary<string, string>();
+        Dictionary<string, string> alt_gruplar = new Dictionary<string, string>();
         DateTime _lastKeystroke = new DateTime(0);
         List<char> _barcode = new List<char>(10);
         String resimVeri = "";
@@ -61,6 +67,7 @@ namespace Market
         {
             timer1.Interval = 500;
             timer1.Start();
+            basla();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -75,7 +82,46 @@ namespace Market
 
         public void basla()
         {
+            //raflar
+            sorgu = "call market.urun_raflari_listele();";
+            raflar.Clear();
+            metroComboBox8.Items.Clear();
+            metroComboBox8.Refresh();
+            baglanti.Basla(sorgu);
+            while (baglanti.reader.Read())
+            {
+                metroComboBox8.Items.Add(baglanti.reader[1].ToString());
+                raflar.Add(baglanti.reader[1].ToString(), baglanti.reader[0].ToString());
+            }
+            baglanti.Bitir();
 
+            //gruplar
+            sorgu = "call market.urun_gruplari_listele();";
+            gruplar.Clear();
+            metroComboBox7.Items.Clear();
+            metroComboBox7.Refresh();
+            metroComboBox6.Items.Clear();
+            metroComboBox6.Refresh();
+            baglanti.Basla(sorgu);
+            while (baglanti.reader.Read())
+            {
+                metroComboBox7.Items.Add(baglanti.reader[1].ToString());
+                gruplar.Add(baglanti.reader[1].ToString(), baglanti.reader[0].ToString());
+            }
+            baglanti.Bitir();
+
+            //firmalar
+            sorgu= "call market.uretici_firmalari_listele();";
+            firmalar.Clear();
+            metroComboBox5.Items.Clear();
+            metroComboBox5.Refresh();
+            baglanti.Basla(sorgu);
+            while (baglanti.reader.Read())
+            {
+                metroComboBox5.Items.Add(baglanti.reader[1].ToString());
+                firmalar.Add(baglanti.reader[1].ToString(), baglanti.reader[1].ToString());
+            }
+            baglanti.Bitir();
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
@@ -158,6 +204,14 @@ namespace Market
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
+            UrunRafEkle ure = new UrunRafEkle();
+            ure.Show();
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            UrunAltGrubuEkle uage = new UrunAltGrubuEkle();
+            uage.Show();
         }
     }
 }

@@ -84,6 +84,7 @@ namespace Market
                     {
                         MetroFramework.MetroMessageBox.Show(this, "Firma silinemedi", "Bağlantı Hatası");
                     }
+                    UrunEkle.veri_yenile = true;
                 }               
             }
             catch

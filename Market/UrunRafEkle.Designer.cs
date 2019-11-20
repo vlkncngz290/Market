@@ -1,6 +1,6 @@
 ﻿namespace Market
 {
-    partial class UrunGrubuEkle
+    partial class UrunRafEkle
     {
         /// <summary>
         /// Required designer variable.
@@ -42,20 +42,20 @@
             // 
             // metroButton2
             // 
-            this.metroButton2.Location = new System.Drawing.Point(11, 249);
+            this.metroButton2.Location = new System.Drawing.Point(9, 249);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(113, 23);
-            this.metroButton2.TabIndex = 7;
-            this.metroButton2.Text = "Seçili Grubu Sil";
+            this.metroButton2.TabIndex = 11;
+            this.metroButton2.Text = "Seçili Rafı Sil";
             this.metroButton2.UseSelectable = true;
             this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
             // 
             // metroButton1
             // 
-            this.metroButton1.Location = new System.Drawing.Point(190, 249);
+            this.metroButton1.Location = new System.Drawing.Point(188, 249);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(75, 23);
-            this.metroButton1.TabIndex = 6;
+            this.metroButton1.TabIndex = 10;
             this.metroButton1.Text = "Ekle";
             this.metroButton1.UseSelectable = true;
             this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
@@ -75,11 +75,11 @@
             this.metroTextBox1.CustomButton.UseSelectable = true;
             this.metroTextBox1.CustomButton.Visible = false;
             this.metroTextBox1.Lines = new string[0];
-            this.metroTextBox1.Location = new System.Drawing.Point(11, 219);
+            this.metroTextBox1.Location = new System.Drawing.Point(9, 219);
             this.metroTextBox1.MaxLength = 32767;
             this.metroTextBox1.Name = "metroTextBox1";
             this.metroTextBox1.PasswordChar = '\0';
-            this.metroTextBox1.PromptText = "Yeni Grup İsmi";
+            this.metroTextBox1.PromptText = "Yeni Raf İsmi";
             this.metroTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.metroTextBox1.SelectedText = "";
             this.metroTextBox1.SelectionLength = 0;
@@ -87,9 +87,9 @@
             this.metroTextBox1.ShortcutsEnabled = true;
             this.metroTextBox1.Size = new System.Drawing.Size(254, 23);
             this.metroTextBox1.Style = MetroFramework.MetroColorStyle.Silver;
-            this.metroTextBox1.TabIndex = 5;
+            this.metroTextBox1.TabIndex = 9;
             this.metroTextBox1.UseSelectable = true;
-            this.metroTextBox1.WaterMark = "Yeni Grup İsmi";
+            this.metroTextBox1.WaterMark = "Yeni Raf İsmi";
             this.metroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
@@ -127,7 +127,7 @@
             this.metroGrid1.EnableHeadersVisualStyles = false;
             this.metroGrid1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.metroGrid1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.metroGrid1.Location = new System.Drawing.Point(11, 63);
+            this.metroGrid1.Location = new System.Drawing.Point(9, 63);
             this.metroGrid1.Name = "metroGrid1";
             this.metroGrid1.ReadOnly = true;
             this.metroGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -143,7 +143,7 @@
             this.metroGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.metroGrid1.Size = new System.Drawing.Size(254, 150);
             this.metroGrid1.Style = MetroFramework.MetroColorStyle.Yellow;
-            this.metroGrid1.TabIndex = 4;
+            this.metroGrid1.TabIndex = 8;
             // 
             // Column1
             // 
@@ -154,12 +154,12 @@
             // 
             // Column2
             // 
-            this.Column2.HeaderText = "GRUP İSMİ";
+            this.Column2.HeaderText = "RAF İSMİ";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
-            this.Column2.Width = 84;
+            this.Column2.Width = 75;
             // 
-            // UrunGrubuEkle
+            // UrunRafEkle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -168,11 +168,11 @@
             this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.metroTextBox1);
             this.Controls.Add(this.metroGrid1);
-            this.Name = "UrunGrubuEkle";
+            this.Name = "UrunRafEkle";
             this.Style = MetroFramework.MetroColorStyle.Yellow;
-            this.Text = "Ürün Grubu Ekle";
+            this.Text = "Raf Ekle";
             this.TextAlign = MetroFramework.Forms.MetroFormTextAlign.Center;
-            this.Load += new System.EventHandler(this.UrunGrubuEkle_Load);
+            this.Load += new System.EventHandler(this.UrunRafEkle_Load);
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
             this.ResumeLayout(false);
 
