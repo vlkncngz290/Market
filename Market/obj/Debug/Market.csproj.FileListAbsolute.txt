@@ -84,3 +84,5 @@ C:\Users\Volkan\Desktop\Market\Market\obj\Debug\Market.exe
 C:\Users\Volkan\Desktop\Market\Market\obj\Debug\Market.pdb
 C:\Users\Volkan\Desktop\Market\Market\obj\Debug\Market.UrunAltGrubuEkle.resources
 C:\Users\Volkan\Desktop\Market\Market\obj\Debug\Market.UrunRafEkle.resources
+C:\Users\Volkan CENGİZ\Desktop\Market\Market\obj\Debug\Market.UrunAltGrubuEkle.resources
+C:\Users\Volkan CENGİZ\Desktop\Market\Market\obj\Debug\Market.UrunRafEkle.resources

@@ -18,8 +18,8 @@ namespace Market
         {
             try
             {
-                // 85.105.97.223
-                baglanti = new MySqlConnection("server=192.168.1.249;user id=root;password=E77c7d6a**;database=market");
+                // 192.168.1.249
+                baglanti = new MySqlConnection("server=85.105.97.223;user id=root;password=E77c7d6a**;database=market");
                 MySqlCommand sql = baglanti.CreateCommand();
                 sql.CommandText = sorgu;
                 baglanti.Open();

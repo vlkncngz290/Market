@@ -14,16 +14,22 @@ namespace Market
     public partial class UrunYonetimi : UserControl
     {
         public static Boolean yenile = false;
+        public static Boolean barkodGeldi = false;
         Baglanti baglanti = new Baglanti();
+        Baglanti yedekBaglanti = new Baglanti();
+        public String barkodOkuyucuVerisi="";
         String sorgu = "";
         Dictionary<string, string> raflar = new Dictionary<string, string>();
         Dictionary<string, string> gruplar = new Dictionary<string, string>();
         Dictionary<string, string> firmalar = new Dictionary<string, string>();
         Dictionary<string, string> alt_gruplar = new Dictionary<string, string>();
+        Dictionary<string, string> alt_gruplar_temp = new Dictionary<string, string>();
         public UrunYonetimi()
         {
             InitializeComponent();
         }
+
+        
 
         private void metroTile4_Click(object sender, EventArgs e)
         {
@@ -59,6 +65,9 @@ namespace Market
         {
             timer1.Interval = 1000;
             timer1.Start();
+            timer3.Interval = 500;
+            timer3.Start();
+            timer2.Interval = 500;
             basla();
         }
 
@@ -212,7 +221,12 @@ namespace Market
 
         private void metroGrid1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            String id = metroGrid1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            urunDetayGetir(metroGrid1.Rows[e.RowIndex].Cells[0].Value.ToString());
+        }
+        
+
+        public void urunDetayGetir(string id)
+        {            
             sorgu = "call market.urun_detay_getir('" + id + "');";
             baglanti.Basla(sorgu);
             if (baglanti.reader.Read())
@@ -223,24 +237,75 @@ namespace Market
                 metroTextBox5.Text = baglanti.reader[8].ToString();
                 metroTextBox6.Text = baglanti.reader[10].ToString();
                 metroTextBox7.Text = baglanti.reader[11].ToString();
-                
                 String resimbase64 = baglanti.reader[7].ToString();
                 pictureBox1.Image = Base64ToImage(baglanti.reader[7].ToString());
-                //byte[] imageBytes = Convert.FromBase64String(Convert.ToBase64String(resimbase64));
-                
+                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                metroComboBox8.Items.Clear();
+                foreach (var raf in raflar)
+                    metroComboBox8.Items.Add(raf.Key);
+                metroComboBox8.SelectedIndex = metroComboBox8.FindStringExact(baglanti.reader[5].ToString());
+                metroComboBox8.Refresh();
+
+                metroComboBox7.Items.Clear();
+                foreach (var grup in gruplar)
+                    metroComboBox7.Items.Add(grup.Key);
+                String key = "";
+                foreach (var grp in gruplar)
+                {
+                    if (grp.Value == baglanti.reader[2].ToString())
+                        key = grp.Key;
+                }
+                metroComboBox7.SelectedIndex = metroComboBox7.FindStringExact(key);
+                metroComboBox7.Refresh();
+
+                sorgu = "call market.urun_alt_gruplarini_listele('" + baglanti.reader[2].ToString() + "');";
+                metroComboBox6.Items.Clear();
+                alt_gruplar_temp.Clear();
+                yedekBaglanti.Basla(sorgu);
+                while (yedekBaglanti.reader.Read())
+                {
+                    metroComboBox6.Items.Add(yedekBaglanti.reader[1].ToString());
+                    alt_gruplar_temp.Add(yedekBaglanti.reader[1].ToString(), yedekBaglanti.reader[0].ToString());
+                }
+                yedekBaglanti.Bitir();
+                foreach (var grp in alt_gruplar_temp)
+                {
+                    if (grp.Value == baglanti.reader[3].ToString())
+                        key = grp.Key;
+                }
+                metroComboBox6.SelectedIndex = metroComboBox6.FindStringExact(key);
+                metroComboBox6.Refresh();
+
+                foreach (var grup in firmalar)
+                    metroComboBox5.Items.Add(grup.Key);
+                foreach (var frm in firmalar)
+                {
+                    if (frm.Value == baglanti.reader[6].ToString())
+                        key = frm.Key;
+                }
+                metroComboBox5.SelectedIndex = metroComboBox5.FindStringExact(key);
+                metroComboBox5.Refresh();
             }
             baglanti.Bitir();
         }
 
         public Image Base64ToImage(string base64String)
         {
-            // Convert base 64 string to byte[]
             byte[] imageBytes = Convert.FromBase64String(base64String);
-            // Convert byte[] to Image
             using (var ms = new MemoryStream(imageBytes, 0, imageBytes.Length))
             {
                 Image image = Image.FromStream(ms, true);
                 return image;
+            }
+        }
+
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+            if (barkodGeldi)
+            {
+                barkodGeldi = false;
+                MessageBox.Show(Form1.okunanBarkod);
+                Form1.okunanBarkod = "";                
             }
         }
     }

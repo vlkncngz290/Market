@@ -12,6 +12,8 @@ namespace Market
 {
     public partial class Form1 : MetroFramework.Forms.MetroForm
     {
+
+        public static string okunanBarkod = "";
         public Form1()
         {
             InitializeComponent();
@@ -24,8 +26,16 @@ namespace Market
 
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            MetroFramework.MetroMessageBox.Show(this, e.KeyChar.ToString());
-            MessageBox.Show(e.KeyChar.ToString());
+            //timer2.Enabled = true;
+            
+            if (Convert.ToInt32(e.KeyChar) == 13)
+            {
+                UrunYonetimi.barkodGeldi = true;
+            }
+            if (true)
+            {
+                okunanBarkod = okunanBarkod + e.KeyChar.ToString();
+            }
         }
     }
 }
