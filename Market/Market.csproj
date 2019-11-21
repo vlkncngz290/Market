@@ -212,6 +212,9 @@
     <Content Include="add2_480px.png" />
     <Content Include="add_480px.png" />
     <Content Include="Image1.png" />
+    <None Include="Resources\combo_chart_30px.png" />
+    <None Include="Resources\barcode_30px.png" />
+    <None Include="Resources\barcode_480px.png" />
     <None Include="Resources\add2_480px.png" />
     <None Include="Resources\add_480px.png" />
   </ItemGroup>

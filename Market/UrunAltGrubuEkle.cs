@@ -89,6 +89,7 @@ namespace Market
                     }
                     baglanti.Bitir();
                     UrunEkle.veri_yenile = true;
+                    UrunYonetimi.yenile = true;
                 }                              
 
             }
@@ -126,6 +127,7 @@ namespace Market
                     }
                     baglanti.Bitir();
                     UrunEkle.veri_yenile = true;
+                    UrunYonetimi.yenile = true;
                     
                 }
                 catch

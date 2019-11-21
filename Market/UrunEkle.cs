@@ -119,7 +119,7 @@ namespace Market
             while (baglanti.reader.Read())
             {
                 metroComboBox5.Items.Add(baglanti.reader[1].ToString());
-                firmalar.Add(baglanti.reader[1].ToString(), baglanti.reader[1].ToString());
+                firmalar.Add(baglanti.reader[1].ToString(), baglanti.reader[0].ToString());
             }
             baglanti.Bitir();
         }
@@ -212,6 +212,272 @@ namespace Market
         {
             UrunAltGrubuEkle uage = new UrunAltGrubuEkle();
             uage.Show();
+        }
+
+        private void metroComboBox7_SelectedValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                try
+                {
+                    string secilenGrup = metroComboBox7.GetItemText(metroComboBox7.SelectedItem);
+                    //MessageBox.Show(gruplar[secilenGrup]);
+                    sorgu = "call market.urun_alt_gruplarini_listele('" + gruplar[secilenGrup] + "');";
+                    metroComboBox6.Items.Clear();
+                    alt_gruplar.Clear();
+                    baglanti.Basla(sorgu);
+                    while (baglanti.reader.Read())
+                    {
+                        metroComboBox6.Items.Add(baglanti.reader[1].ToString());
+                        alt_gruplar.Add(baglanti.reader[1].ToString(), baglanti.reader[0].ToString());
+                    }
+                    baglanti.Bitir();
+                }
+                catch
+                {
+
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void metroTile1_Click(object sender, EventArgs e)
+        {
+            if (metroTextBox2.Text.Length > 2)
+            {
+                if (metroTextBox5.Text.Length > 1)
+                {
+                    Boolean yeniEkle = false;
+                    String secilenRaf = "";
+                    String secilenGrup = "";
+                    String secilenAltGrup = "";
+                    String secilenUretici = "";
+
+                    String urunAdi = metroTextBox2.Text;
+                    String minimumStok = metroTextBox4.Text;
+                    Int32 minStokSay = 0;
+
+                    String birim = "";
+                    String satisFiyati = "";
+                    String stokSayisi = "";
+                    String barkodKodu = "";
+                    try
+                    {
+                        secilenRaf = metroComboBox8.GetItemText(metroComboBox8.SelectedItem);
+                    }
+                    catch
+                    {
+                        MetroFramework.MetroMessageBox.Show(this, "Ürün raf olmadan kaydedilecek", "Raf Seçilmedi");
+                    }
+                    try
+                    {
+                        secilenGrup = metroComboBox7.GetItemText(metroComboBox7.SelectedItem);
+                        try
+                        {
+                            secilenAltGrup = metroComboBox6.GetItemText(metroComboBox6.SelectedItem);
+                        }
+                        catch
+                        {
+                            MetroFramework.MetroMessageBox.Show(this, "Ürün alt grup olmadan kaydedilecek", "Alt Grup Seçilmedi");
+                        }
+                    }
+                    catch
+                    {
+                        MetroFramework.MetroMessageBox.Show(this, "Ürün grup ve alt grup olmadan kaydedilecek", "Grup Seçilmedi");
+                    }
+
+                    try
+                    {
+                        secilenUretici = metroComboBox5.GetItemText(metroComboBox5.SelectedItem);
+                    }
+                    catch
+                    {
+                        MetroFramework.MetroMessageBox.Show(this, "Ürün üretici olmadan kaydedilecek", "Üretici Seçilmedi");
+                    }
+                    try
+                    {
+                        minStokSay = Convert.ToInt32(minimumStok);
+                    }
+                    catch
+                    {
+                        MetroFramework.MetroMessageBox.Show(this, "Minimum stok sayısı olmadan kayıt edilecek", "Minimum stok sayısı hatalı girildi");
+                        minStokSay = 0;
+                    }
+                    if (resimVeri.Length < 1)
+                    {
+
+                        DialogResult dr = MetroFramework.MetroMessageBox.Show(this, "Ürüne resim eklemek istemediğinizden eminmisiniz?", "Resim Yok", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (dr == DialogResult.Yes)
+                        {
+                            String rafID;
+                            String grupID;
+                            String altGrupID;
+                            String ureticiID;
+                            try
+                            {
+                                rafID = raflar[secilenRaf];
+                            }
+                            catch
+                            {
+                                rafID = "0";
+                            }
+                            try
+                            {
+                                grupID = gruplar[secilenGrup];
+                            }
+                            catch
+                            {
+                                grupID = "0";
+                            }
+                            try
+                            {
+                                altGrupID = alt_gruplar[secilenAltGrup];
+                            }
+                            catch
+                            {
+                                altGrupID = "0";
+                            }
+                            try
+                            {
+                                ureticiID = firmalar[secilenUretici];
+                            }
+                            catch
+                            {
+                                ureticiID = "0";
+                            }
+
+                            birim = metroTextBox1.Text;
+                            satisFiyati = metroTextBox3.Text;
+                            //stokSayisi = metroTextBox6.Text;
+                            barkodKodu = metroTextBox5.Text;
+                            sorgu = "call market.yeni_urun_ekle('"+urunAdi+"','"+ rafID + "','"+ grupID + "','"+ altGrupID + "','"+ ureticiID + "','"+minStokSay+"','"+
+                                barkodKodu+"','"+resimVeri+"','"+birim+"','"+satisFiyati+"');";
+                            baglanti.Basla(sorgu);
+                            if (baglanti.reader.RecordsAffected > 0)
+                            {
+                                DialogResult drr = MetroFramework.MetroMessageBox.Show(this, "Başka ürün eklemek istermisiniz", "Ürün Başarıyla Eklendi", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                                if (drr == DialogResult.Yes)
+                                {
+                                    yeniEkle = true;
+                                }
+                            }
+                            baglanti.Bitir();
+                            if (yeniEkle)
+                            {
+                                metroTextBox2.Text = "";
+                                resimVeri = "";
+                                metroTextBox4.Text = "";
+                                metroTextBox1.Text = "";
+                                metroTextBox5.Text = "";
+                                metroTextBox3.Text = "";
+                                metroComboBox5.SelectedIndex = -1;
+                                metroComboBox5.Refresh();
+                                metroComboBox6.SelectedIndex = -1;
+                                metroComboBox6.Refresh();
+                                metroComboBox7.SelectedIndex = -1;
+                                metroComboBox7.Refresh();
+                                metroComboBox8.SelectedIndex = -1;
+                                metroComboBox8.Refresh();
+                                pictureBox1.Image = null;
+                            }
+                            else
+                            {
+                                this.Close();
+                            }
+                        }
+
+                    }
+                    else
+                    {
+                        String rafID;
+                        String grupID;
+                        String altGrupID;
+                        String ureticiID;
+                        try
+                        {
+                            rafID = raflar[secilenRaf];
+                        }
+                        catch
+                        {
+                            rafID = "0";
+                        }
+                        try
+                        {
+                            grupID = gruplar[secilenGrup];
+                        }
+                        catch
+                        {
+                            grupID = "0";
+                        }
+                        try
+                        {
+                            altGrupID = alt_gruplar[secilenAltGrup];
+                        }
+                        catch
+                        {
+                            altGrupID = "0";
+                        }
+                        try
+                        {
+                            ureticiID = firmalar[secilenUretici];
+                        }
+                        catch
+                        {
+                            ureticiID = "0";
+                        }
+
+                        birim = metroTextBox1.Text;
+                        satisFiyati = metroTextBox3.Text;
+                        //stokSayisi = metroTextBox6.Text;
+                        barkodKodu = metroTextBox5.Text;
+                        sorgu = "call market.yeni_urun_ekle('" + urunAdi + "','" + rafID + "','" + grupID + "','" + altGrupID + "','" + ureticiID + "','" + minStokSay + "','" +
+                            barkodKodu + "','" + resimVeri + "','" + birim + "','" + satisFiyati + "');";
+                        baglanti.Basla(sorgu);
+                        if (baglanti.reader.RecordsAffected>0)
+                        {
+                            DialogResult drr = MetroFramework.MetroMessageBox.Show(this, "Başka ürün eklemek istermisiniz", "Ürün Başarıyla Eklendi", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                            if (drr == DialogResult.Yes)
+                            {
+                                yeniEkle = true;
+                            }
+                        }
+                        baglanti.Bitir();
+                        if (yeniEkle)
+                        {
+                            metroTextBox2.Text = "";
+                            resimVeri = "";
+                            metroTextBox4.Text = "";
+                            metroTextBox1.Text = "";
+                            metroTextBox5.Text = "";
+                            metroTextBox3.Text = "";
+                            metroComboBox5.SelectedIndex = -1;
+                            metroComboBox5.Refresh();
+                            metroComboBox6.SelectedIndex = -1;
+                            metroComboBox6.Refresh();
+                            metroComboBox7.SelectedIndex = -1;
+                            metroComboBox7.Refresh();
+                            metroComboBox8.SelectedIndex = -1;
+                            metroComboBox8.Refresh();
+                            pictureBox1.Image = null;
+                        }
+                        else
+                        {
+                            this.Close();
+                        }
+                    }
+                }
+                else
+                {
+                    MetroFramework.MetroMessageBox.Show(this, "Barkod numarası giriniz", "Barkod yok");
+                }
+            }
+            else
+            {
+                MetroFramework.MetroMessageBox.Show(this, "Ürün ismi en az 2 karakterli olmalıdır.", "Ürün ismi hatalı");
+            }
         }
     }
 }

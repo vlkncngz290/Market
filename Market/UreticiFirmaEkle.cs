@@ -53,6 +53,7 @@ namespace Market
                     else
                     {
                         UrunEkle.veri_yenile = true;
+                        UrunYonetimi.yenile = true;
                         EkranAktiflestir.Aktiflestir("UrunEkle");
                         this.Close();
                     }
@@ -85,6 +86,7 @@ namespace Market
                         MetroFramework.MetroMessageBox.Show(this, "Firma silinemedi", "Bağlantı Hatası");
                     }
                     UrunEkle.veri_yenile = true;
+                    UrunYonetimi.yenile = true;
                 }               
             }
             catch

@@ -61,6 +61,7 @@ namespace Market
                 MetroFramework.MetroMessageBox.Show(this, "Raf ismi en az 2 karakterli olmalıdır.");
             }
             UrunEkle.veri_yenile = true;
+            UrunYonetimi.yenile = true;
         }
 
         private void metroButton2_Click(object sender, EventArgs e)
@@ -87,6 +88,7 @@ namespace Market
 
                 }
                 UrunEkle.veri_yenile = true;
+                UrunYonetimi.yenile = true;
             }
             
         }
