@@ -212,6 +212,11 @@
     <Content Include="add2_480px.png" />
     <Content Include="add_480px.png" />
     <Content Include="Image1.png" />
+    <None Include="Resources\delete_sign_30px1.png" />
+    <None Include="Resources\checkout_30px.png" />
+    <None Include="Resources\bill_30px1.png" />
+    <None Include="Resources\bill_30px.png" />
+    <None Include="Resources\delete_sign_30px.png" />
     <None Include="Resources\combo_chart_30px.png" />
     <None Include="Resources\barcode_30px.png" />
     <None Include="Resources\barcode_480px.png" />
