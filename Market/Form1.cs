@@ -8,6 +8,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -38,15 +39,21 @@ namespace Market
 
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //timer2.Enabled = true;
             
-            if (Convert.ToInt32(e.KeyChar) == 13)
+
+            if (satisAcik)
             {
-                UrunYonetimi.barkodGeldi = true;
-            }
-            if (true)
-            {
-                okunanBarkod = okunanBarkod + e.KeyChar.ToString();
+                //timer1.Enabled = true;
+                // Satış Ekranı Açık
+                if (Convert.ToInt32(e.KeyChar) == 13)
+                {
+                    barkodlaUrunGetir(okunanBarkod);
+                    //timer1.Enabled = false;
+                }
+                if (true)
+                {
+                    okunanBarkod = okunanBarkod + e.KeyChar.ToString();
+                }
             }
         }
 
@@ -64,6 +71,7 @@ namespace Market
                 raporlarAcik = false;
                 barkodUretAcik = false;
                 satisAcik = true;
+                groupBox1.Visible = true;
             }
             else if (ekranIsmi == "satinalmaAcik")
             {
@@ -101,12 +109,17 @@ namespace Market
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
-            String sorgu = "call market.barkod_ile_urun_getir('" + metroTextBox1.Text + "');";
+            barkodlaUrunGetir(metroTextBox1.Text);
+        }
+
+        public void barkodlaUrunGetir(string barkod)
+        {
+            String sorgu = "call market.barkod_ile_urun_getir('" + barkod + "');";
             baglanti.Basla(sorgu);
             if (baglanti.reader.Read())
             {
                 bool yenimi = true;
-                foreach(DataGridViewRow satir in metroGrid1.Rows)
+                foreach (DataGridViewRow satir in metroGrid1.Rows)
                 {
                     if (satir.Cells[0].Value.ToString() == baglanti.reader[0].ToString())
                     {
@@ -114,20 +127,20 @@ namespace Market
                         Double miktar = Convert.ToDouble(satir.Cells[4].Value.ToString());
                         miktar++;
                         satir.Cells[4].Value = miktar.ToString();
-                        Double vergiYuzdesi= Convert.ToDouble(satir.Cells[6].Value.ToString());
+                        Double vergiYuzdesi = Convert.ToDouble(satir.Cells[6].Value.ToString());
                         Double birimFiyat = Convert.ToDouble(satir.Cells[5].Value.ToString());
                         Double toplamTutar = (birimFiyat * miktar);
                         toplamTutar = toplamTutar + (toplamTutar * vergiYuzdesi / 100);
 
                         satir.Cells[7].Value = toplamTutar.ToString();
                         Double satisToplam = 0;
-                        foreach(DataGridViewRow str in metroGrid1.Rows)
+                        foreach (DataGridViewRow str in metroGrid1.Rows)
                         {
                             satisToplam = satisToplam + Convert.ToDouble(str.Cells[7].Value.ToString());
                         }
                         metroLabel2.Text = satisToplam.ToString() + " TL";
                     }
-                    
+
                 }
                 if (yenimi)
                 {
@@ -141,7 +154,7 @@ namespace Market
                     }
                     metroLabel2.Text = satisToplam.ToString() + " TL";
                 }
-                
+
             }
             baglanti.Bitir();
         }
@@ -204,6 +217,20 @@ namespace Market
             {
 
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (okunanBarkod.Length > 7)
+            {
+                okunanBarkod = "";
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            timer1.Interval = 700;
+            timer1.Start();
         }
     }
 }
