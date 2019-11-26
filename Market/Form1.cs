@@ -232,5 +232,67 @@ namespace Market
             timer1.Interval = 700;
             timer1.Start();
         }
+
+        private void metroTile8_Click(object sender, EventArgs e)
+        {
+            if (metroGrid1.RowCount > 0)
+            {
+                bool ilkKontrol = false;
+                String sonSatisNumarasi="";
+                Double vergiliToplam = 0;
+                Double vergiTutari = 0;
+                Double vergisizToplam = 0;
+                foreach(DataGridViewRow satir in metroGrid1.Rows)
+                {
+                    vergiTutari = vergiTutari+(Convert.ToDouble(satir.Cells[5].Value.ToString())* Convert.ToDouble(satir.Cells[4].Value.ToString()) * Convert.ToDouble(satir.Cells[6].Value.ToString()) / 100);
+                    vergiliToplam = vergiliToplam + Convert.ToDouble(satir.Cells[7].Value.ToString());
+                }
+                vergisizToplam = vergiliToplam - vergiTutari;
+                //son satış numarası al
+                String sorgu = "call market.son_satis_numarasi_ver();";
+                baglanti.Basla(sorgu);
+                if (baglanti.reader.Read())
+                {
+                    sonSatisNumarasi = baglanti.reader[0].ToString();
+                }
+                sonSatisNumarasi = (Convert.ToUInt32(sonSatisNumarasi) + 1).ToString();
+                baglanti.Bitir();
+                //satış ekle
+                string trh = DateTime.Now.ToString("dd/MM/yyyy");
+                string st = DateTime.Now.ToString("HH:mm");
+                sorgu = "call market.satis_ekle('"+trh+"','"+st+"','"+vergiliToplam.ToString()+"','" + vergiTutari.ToString() +"','"+vergisizToplam.ToString()+"');";
+                baglanti.Basla(sorgu);
+                if (baglanti.reader.Read())
+                {
+                    if (baglanti.reader[0].ToString() == sonSatisNumarasi)
+                        ilkKontrol = true;
+                }
+                baglanti.Bitir();
+                //gelen id numarası, son satış numarasından 1 fazla ise 
+                if (ilkKontrol)
+                {
+                    foreach(DataGridViewRow satir in metroGrid1.Rows)
+                    {
+
+                    }
+                }
+                else
+                {
+                    mesaj("Lütfen tekrar deneyiniz", "Beklenmeyen Hata");
+                }
+                
+                //faturasiz satış kalemleri ekle
+
+            }
+            else
+            {
+                mesaj("Lütfen ürün seçiniz", "Ürün Yok");
+            }
+        }
+
+        public void mesaj(string aciklama, string baslik)
+        {
+            MetroFramework.MetroMessageBox.Show(this, aciklama, baslik);
+        }
     }
 }
