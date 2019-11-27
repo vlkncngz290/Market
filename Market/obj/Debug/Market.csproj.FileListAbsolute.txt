@@ -86,3 +86,4 @@ C:\Users\Volkan\Desktop\Market\Market\obj\Debug\Market.UrunAltGrubuEkle.resource
 C:\Users\Volkan\Desktop\Market\Market\obj\Debug\Market.UrunRafEkle.resources
 C:\Users\Volkan CENGİZ\Desktop\Market\Market\obj\Debug\Market.UrunAltGrubuEkle.resources
 C:\Users\Volkan CENGİZ\Desktop\Market\Market\obj\Debug\Market.UrunRafEkle.resources
+C:\Users\Volkan\Desktop\Market\Market\obj\Debug\Market.FaturaKes.resources

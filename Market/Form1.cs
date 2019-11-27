@@ -271,17 +271,51 @@ namespace Market
                 //gelen id numarası, son satış numarasından 1 fazla ise 
                 if (ilkKontrol)
                 {
-                    foreach(DataGridViewRow satir in metroGrid1.Rows)
+                    //faturasiz satış kalemleri ekle
+                    String satis_no = "";
+                    String urun_id = "";
+                    String urun_ismi = "";
+                    String birim = "";
+                    String miktar = "";
+                    String birim_fiyat = "";
+                    String vergi_yuzdesi = "";
+                    String vergisiz_toplam_tutar = "";
+                    String vergili_toplam_tutar = "";
+                    foreach (DataGridViewRow satir in metroGrid1.Rows)
                     {
+                        satis_no = sonSatisNumarasi.ToString();
+                        urun_id = satir.Cells[0].Value.ToString();
+                        urun_ismi = satir.Cells[2].Value.ToString();
+                        birim = satir.Cells[3].Value.ToString();
+                        miktar = satir.Cells[4].Value.ToString();
+                        birim_fiyat = satir.Cells[5].Value.ToString();
+                        vergi_yuzdesi = satir.Cells[6].Value.ToString();
+                        vergisiz_toplam_tutar = (Convert.ToDouble(miktar) * Convert.ToDouble(birim_fiyat)).ToString();
+                        vergili_toplam_tutar = satir.Cells[7].Value.ToString();
+                        sorgu = "call market.faturasiz_satis_kalemi_ekle('"+satis_no+"','"+urun_id+"','"+urun_ismi+"','"+birim+"','"+
+                            miktar+"','"+birim_fiyat+"','"+vergi_yuzdesi+"','"+
+                            vergisiz_toplam_tutar+"','"+vergili_toplam_tutar+"');";
+                        baglanti.Basla(sorgu);
+                        if (baglanti.reader.RecordsAffected > 0)
+                        {
 
+                        }
+                        else
+                        {
+                            mesaj("Ürün Adı: " + urun_ismi, "Satış Gerçekleştirilemedi");
+                        }
+                        baglanti.Bitir();
                     }
+                    mesaj("", "Satış Tamamlandı");
+                    metroGrid1.Rows.Clear();
+                    metroLabel2.Text = "0 TL";
                 }
                 else
                 {
                     mesaj("Lütfen tekrar deneyiniz", "Beklenmeyen Hata");
                 }
                 
-                //faturasiz satış kalemleri ekle
+                
 
             }
             else
@@ -293,6 +327,34 @@ namespace Market
         public void mesaj(string aciklama, string baslik)
         {
             MetroFramework.MetroMessageBox.Show(this, aciklama, baslik);
+        }
+
+        private void metroTile7_Click(object sender, EventArgs e)
+        {
+            if(metroGrid1.RowCount > 0)
+            {
+                if (!EkranAktiflestir.Acikmi("FaturaKes"))
+                {
+                    FaturaKes.idVeMiktarlar.Clear();
+                    foreach (DataGridViewRow satir in metroGrid1.Rows)
+                    {
+                        FaturaKes.idVeMiktarlar.Add(satir.Cells[0].Value.ToString(), satir.Cells[4].Value.ToString());
+                        
+                    }
+                    FaturaKes fk = new FaturaKes();
+                    fk.Show();
+                }
+                else
+                {
+                    mesaj("Lütfen açık olan fatura ekranını kapatınız.", "Fatura Kesme Ekranı Açık");
+                    EkranAktiflestir.Aktiflestir("FaturaKes");
+                }
+            }
+            else
+            {
+                mesaj("Lütfen ürün seçiniz", "Ürün Yok");
+            }
+
         }
     }
 }

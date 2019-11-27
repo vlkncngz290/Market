@@ -98,6 +98,12 @@
     </Compile>
     <Compile Include="Baglanti.cs" />
     <Compile Include="EkranAktiflestir.cs" />
+    <Compile Include="FaturaKes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FaturaKes.Designer.cs">
+      <DependentUpon>FaturaKes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +163,9 @@
     <EmbeddedResource Include="Alisveris.resx">
       <DependentUpon>Alisveris.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FaturaKes.resx">
+      <DependentUpon>FaturaKes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -212,6 +221,9 @@
     <Content Include="add2_480px.png" />
     <Content Include="add_480px.png" />
     <Content Include="Image1.png" />
+    <None Include="Resources\group_30px1.png" />
+    <None Include="Resources\supplier_30px.png" />
+    <None Include="Resources\group_30px.png" />
     <None Include="Resources\delete_sign_30px1.png" />
     <None Include="Resources\checkout_30px.png" />
     <None Include="Resources\bill_30px1.png" />
