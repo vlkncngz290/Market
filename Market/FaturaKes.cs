@@ -20,6 +20,7 @@ namespace Market
         Double vergiTutari = 0;
         String sorgu = "";
         Baglanti baglanti = new Baglanti();
+        Boolean satirDegistir = false;
         public FaturaKes()
         {
             InitializeComponent();
@@ -55,6 +56,7 @@ namespace Market
             metroLabel10.Text = iskonto.ToString("0.##") + " TL";
             metroLabel11.Text = vergiTutari.ToString("0.##") + " TL";
             metroLabel12.Text = genelToplam.ToString("0.##") + " TL";
+            //son fatura numarasi getirip 
         }
 
         public void mesaj(string aciklama, string baslik)
@@ -99,6 +101,62 @@ namespace Market
         {
             MusteriEkle me = new MusteriEkle();
             me.Show();
+        }
+
+        private void metroTile2_Click(object sender, EventArgs e)
+        {
+            metroGrid1.Rows.Add("0", "İSKONTO", "ADET", "1", "", "0", "");
+        }
+
+        private void metroGrid1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (satirDegistir)
+            {
+                Double birim_fiyat = Convert.ToDouble(metroGrid1.Rows[e.RowIndex].Cells[4].Value.ToString());
+                Double miktar = Convert.ToDouble(metroGrid1.Rows[e.RowIndex].Cells[3].Value.ToString());
+                Double toplam = birim_fiyat * miktar;
+                metroGrid1.Rows[e.RowIndex].Cells[6].Value = toplam.ToString();
+                toplamYenile();
+            }
+        }
+
+        public void toplamYenile()
+        {
+            Double araToplam = 0;
+            Double vergi = 0;
+            Double iskonto = 0;
+            Double gToplam = 0;
+            foreach(DataGridViewRow satir in metroGrid1.Rows)
+            {
+                if (satir.Cells[1].Value.ToString() != "İSKONTO")
+                {
+                    araToplam = araToplam + (Convert.ToDouble(satir.Cells[3].Value.ToString()) * Convert.ToDouble(satir.Cells[4].Value.ToString()));
+                    vergi = vergi + ((Convert.ToDouble(satir.Cells[3].Value.ToString()) * Convert.ToDouble(satir.Cells[4].Value.ToString())) * Convert.ToDouble(satir.Cells[5].Value.ToString()) / 100);
+
+                }
+                else
+                {
+                    iskonto = iskonto + Convert.ToDouble(satir.Cells[4].Value.ToString());
+                }
+            }
+            gToplam = (araToplam + vergi) - iskonto;
+            metroLabel9.Text = araToplam.ToString("0.##") + " TL";
+            metroLabel10.Text = iskonto.ToString("0.##") + "TL";
+            metroLabel11.Text = vergi.ToString("0.##") + " TL";
+            metroLabel12.Text = gToplam.ToString("0.##") + " TL";
+        }
+
+        private void metroGrid1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            satirDegistir = true;
+        }
+
+        private void metroTile1_Click(object sender, EventArgs e)
+        {
+            //fatura_ekle
+            //satis_ekle
+            //satis_kalemleri_ekle
+
         }
     }
 }

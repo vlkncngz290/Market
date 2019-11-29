@@ -132,13 +132,13 @@ namespace Market
                         Double toplamTutar = (birimFiyat * miktar);
                         toplamTutar = toplamTutar + (toplamTutar * vergiYuzdesi / 100);
 
-                        satir.Cells[7].Value = toplamTutar.ToString();
+                        satir.Cells[7].Value = toplamTutar.ToString("0.##");
                         Double satisToplam = 0;
                         foreach (DataGridViewRow str in metroGrid1.Rows)
                         {
                             satisToplam = satisToplam + Convert.ToDouble(str.Cells[7].Value.ToString());
                         }
-                        metroLabel2.Text = satisToplam.ToString() + " TL";
+                        metroLabel2.Text = satisToplam.ToString("0.##") + " TL";
                     }
 
                 }
@@ -146,13 +146,13 @@ namespace Market
                 {
                     Double toplamTutar = Convert.ToDouble(baglanti.reader[4].ToString()) + (Convert.ToDouble(baglanti.reader[4].ToString()) * Convert.ToDouble(baglanti.reader[5].ToString()) / 100);
                     metroGrid1.Rows.Add(baglanti.reader[0].ToString(), Base64ToImage(baglanti.reader[1].ToString()), baglanti.reader[2].ToString(),
-                    baglanti.reader[3].ToString(), "1", baglanti.reader[4].ToString(), baglanti.reader[5].ToString(), toplamTutar.ToString());
+                    baglanti.reader[3].ToString(), "1", baglanti.reader[4].ToString(), baglanti.reader[5].ToString(), toplamTutar.ToString("0.##"));
                     Double satisToplam = 0;
                     foreach (DataGridViewRow str in metroGrid1.Rows)
                     {
                         satisToplam = satisToplam + Convert.ToDouble(str.Cells[7].Value.ToString());
                     }
-                    metroLabel2.Text = satisToplam.ToString() + " TL";
+                    metroLabel2.Text = satisToplam.ToString("0.##") + " TL";
                 }
 
             }
@@ -211,7 +211,7 @@ namespace Market
                 {
                     satisToplam = satisToplam + Convert.ToDouble(str.Cells[7].Value.ToString());
                 }
-                metroLabel2.Text = satisToplam.ToString() + " TL";
+                metroLabel2.Text = satisToplam.ToString("0.##") + " TL";
             }
             catch
             {
